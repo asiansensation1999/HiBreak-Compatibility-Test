@@ -3,7 +3,7 @@
     <application
         android:allowBackup="false"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:label="HiBreak Test 0.2"
+        android:label="HiBreak Test 0.3"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity
             android:name=".MainActivity"
