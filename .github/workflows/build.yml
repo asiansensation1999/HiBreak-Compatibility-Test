@@ -1,4 +1,4 @@
-name: Build compatibility test 0.2
+name: Build HiBreak Wi-Fi 0.4
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -28,11 +28,14 @@ jobs:
         with:
           gradle-version: '8.9'
 
-      - name: Build debug APK
-        run: gradle --no-daemon :app:assembleDebug
+      - name: Extract full Wi-Fi source
+        run: unzip -q HiBreak-WiFi-v0.4-source.zip -d full-wifi
+
+      - name: Build APK
+        run: gradle --no-daemon -p full-wifi :app:assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
-          name: HiBreak-compatibility-0.2-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: HiBreak-WiFi-0.4-debug
+          path: full-wifi/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
