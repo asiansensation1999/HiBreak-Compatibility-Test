@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'org.hibreak.compatibility'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'org.hibreak.compatibility'
+        minSdk 23
+        targetSdk 35
+        versionCode 2
+        versionName '0.2'
+    }
+}
